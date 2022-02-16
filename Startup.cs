@@ -46,8 +46,8 @@ namespace gregslistSql
             services.AddTransient<CarsRepository>();
             services.AddTransient<CarsService>();
 
-            // services.AddTransient<HousesRepository>();
-            // services.AddTransient<HousesService>();
+            services.AddTransient<HousesRepository>();
+            services.AddTransient<HousesService>();
 
             //  services.AddTransient<JobsRepository>();
             // services.AddTransient<JobsService>();

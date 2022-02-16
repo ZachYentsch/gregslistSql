@@ -24,7 +24,7 @@ namespace gregslistSql.Repositories
 
         internal Car getById(int id)
         {
-            string sql = "SELECT * FROM cars WHERE id = @id";
+            string sql = "SELECT * FROM cars WHERE id = @id;";
             Car car = _db.QueryFirstOrDefault<Car>(sql, new { id });
             return car;
         }
@@ -65,7 +65,7 @@ namespace gregslistSql.Repositories
             int changed = _db.Execute(sql, new { id });
             if (changed == 0)
             {
-                throw new System.Exception("Error, Was not deleted");
+                throw new System.Exception("Error, Car was not deleted");
             }
         }
     }
