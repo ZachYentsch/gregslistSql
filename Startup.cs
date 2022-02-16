@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -39,9 +39,18 @@ namespace gregslistSql
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "gregslistSql", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            
+
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
+
+            services.AddTransient<CarsRepository>();
+            services.AddTransient<CarsService>();
+
+            // services.AddTransient<HousesRepository>();
+            // services.AddTransient<HousesService>();
+
+            //  services.AddTransient<JobsRepository>();
+            // services.AddTransient<JobsService>();
         }
 
         private void ConfigureCors(IServiceCollection services)
@@ -94,10 +103,10 @@ namespace gregslistSql
             }
 
             app.UseHttpsRedirection();
-            
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+
             app.UseRouting();
 
             app.UseAuthentication();
