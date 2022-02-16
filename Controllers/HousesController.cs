@@ -80,8 +80,8 @@ namespace gregslistSql.Controllers
         {
             try
             {
-                _cs.Remove(id):
-               return Ok("House Deleted")
+                _hs.Remove(id);
+                return Ok("House Deleted");
             }
             catch (System.Exception e)
             {
